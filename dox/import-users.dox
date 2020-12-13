@@ -1,0 +1,11 @@
+#
+# Regards, the Alveare Solutions society.
+#
+# [ NOTE ]: Blank lines and lines starting with # are ignored by parser.
+# [ NOTE ]: Every line represents a user to be created.
+#
+# [ EXAMPLE ]: System users import:
+# UserName1
+# UserName2
+# UserName3
+

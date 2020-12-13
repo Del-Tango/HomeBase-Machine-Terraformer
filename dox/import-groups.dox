@@ -1,0 +1,11 @@
+#
+# Regards, the Alveare Solutions society.
+#
+# [ NOTE ]: Blank lines and lines starting with # are ignored by parser.
+# [ NOTE ]: Every line represents a system group to be created.
+#
+# [ EXAMPLE ]: System group import:
+# user_group1
+# user_group2
+# user_group3
+

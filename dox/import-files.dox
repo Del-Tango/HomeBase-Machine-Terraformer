@@ -1,0 +1,11 @@
+#
+# Regards, the Alveare Solutions society.
+#
+# [ NOTE ]: Blank lines and lines starting with # are ignored by parser.
+# [ NOTE ]: Every line represents a regular file to be created.
+#
+# [ EXAMPLE ]: File path import:
+# /absolute/file/path/1
+# /absolute/file/path/2
+# /absolute/file/path/3
+

@@ -1,0 +1,11 @@
+#
+# Regards, the Alveare Solutions society.
+#
+# [ NOTE ]: Blank lines and lines starting with # are ignored by parser.
+# [ NOTE ]: Every line represents a user to be added to groups.
+#
+# [ EXAMPLE ]: User groups import:
+# UserName1:group_name1,group_name2,group_name3
+# UserName2:group_name1,group_name2,group_name3
+# UserName3:group_name1,group_name2,group_name3
+

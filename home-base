@@ -1,0 +1,58 @@
+#!/bin/bash
+#
+# Regards, the Alveare Solutions society.
+#
+declare -A HB_DEFAULT
+declare -A HB_LIB
+declare -A HB_SOURCE
+declare -A HB_IMPORTS
+declare -A HB_TERRAFORM
+declare -A HB_EXAMPLES
+
+if [ $EUID -ne 0 ]; then
+    echo "[ WARNING ]: HomeBase requiers elevated privileges. Are you root?"
+    exit 1
+fi
+
+# [ NOTE ]: Absolute directory path the current file is in.
+HB_DIRECTORY="$(
+    cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd
+)"
+CONF_FILE_PATH="$HB_DIRECTORY/conf/home-base.conf"
+
+if [ ! -f "$CONF_FILE_PATH" ]; then
+    echo "[ WARNING ]: Config file ($CONF_FILE_PATH) not found."
+    return 1
+else
+    source "$CONF_FILE_PATH"
+fi
+
+for script in ${!HB_SOURCE[@]}; do
+    source ${HB_SOURCE[$script]}
+    if [ $? -ne 0 ]; then
+        echo "[ NOK ]: Something went wrong."\
+            "Could not load ($script) script."
+    else
+        echo "[ OK ]: Successfully loaded ($script) script."
+    fi
+done
+
+for library in ${!HB_LIB[@]}; do
+    source ${HB_LIB[$library]}
+    if [ $? -ne 0 ]; then
+        echo "[ NOK ]: Something went wrong."\
+            "Could not load ($library) library."
+    else
+        echo "[ OK ]: Successfully loaded ($library) library."
+    fi
+done
+
+# MISCELLANEOUS
+
+function init_home_base () {
+    home_base_project_setup
+    display_home_base_banner
+    init_menu 'MainController'
+}
+
+init_home_base
